@@ -1,0 +1,337 @@
+body {
+  background-color: #326397;
+}
+
+
+
+.filter-select {
+  font-size: 14px;
+  padding: 6px 10px;
+}
+
+.filter-select, .filter-input {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.card-body {
+  padding: 15px 20px 20px 20px; /* نقصت padding فوق عشان الصورة تمشي للعرض كامل */
+  background-color: #d8d1c8;
+  border-radius: 0 0 12px 12px;
+  direction: rtl;
+  text-align: right;
+}
+
+.card-title {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #083982;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 6px;
+}
+
+/* تأثير الهوفر */
+.card-title:hover {
+  background-color: #e6f0ff; /* خلفية خفيفة */
+  cursor: pointer;
+}
+
+.card-text {
+  color: #333;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 8px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* تأثير عند المرور بالماوس */
+.card-text:hover {
+  color: #041931; /* لون أزرق أو أي لون تختاريه */
+  transform: scale(1.05); /* تكبير بسيط */
+  cursor: pointer; /* شكل اليد */
+}
+
+.details-label {
+  color: #198754; /* أخضر زي زرار الواتساب عندك */
+  font-weight: bold;
+  font-size: 20;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.details-label:hover {
+  color: #02153d;
+  transform: scale(1.05); /* تكبير بسيط */
+  cursor: pointer; /* شكل اليد */
+  text-decoration: underline;
+}
+
+.container {
+  background-color: #326397; /* لون أزرق غامق (يمكن تغييره حسب رغبتك) */
+  padding: 20px; /* عشان يبقى فيه مساحة داخلية */
+  border-radius: 8px; /* لو حابة تعطيه حواف دائرية */
+}
+
+.custom-header-bg {
+    background-color: #ded9cb !important; /* لون أزرق ملكي أو غيريه */
+    color: rgb(5, 70, 96); /* تأكدي إن النص أبيض */
+    padding: 15px;  /* ممكن تزودي padding لو حبيتي */
+    border-radius: 10px; /* لو حابة الحواف دائرية */
+}
+
+.details-label {
+  background-color: #f1f0ed;  /* لون أصفر خفيف */
+  color: rgb(14, 56, 94);
+  padding: 4px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.custom-table {
+  background-color: #3062a3; /* الخلفية */
+  color: #e3dede; /* لون النص */
+}
+
+.status {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 10px;
+  float: left;  /* ✅ كده صح */
+  clear: both;
+}
+
+.status.available {
+  background-color: #e7e7d1;
+  color: #0f5132;
+}
+
+.status.sold-out {
+  background-color: #f8d7da;
+  color: #842029;
+}
+
+.property-detail-body {
+  background-color: #e6d7cb; /* الأزرق */
+  color: white;              /* اللون الأبيض للنص */
+}
+
+.property-description {
+  
+  direction: rtl;
+  display: block;
+  font-family: 'Cairo', sans-serif; /* أو أي خط تختاريه */
+  font-size: 18px;
+  line-height: 1.6;
+  color: #f3f2ef;
+  /* font-weight: bold; */
+  margin-top: 5px;
+  /* بدون تأثيرات خاصة بالكارت تيكست */
+}
+
+.property-label {
+  color: rgb(8, 65, 112);          /* نص أبيض */
+  background-color: #d4c8c1;  /* خلفية زرقاء أو أي لون داكن */
+  padding: 5px 5px;
+  border-radius: 4px;
+  font-weight: bold;
+  float: right;
+  margin-left: 10px;
+}
+
+.custom-table {
+  border: 1px solid #e6e4de;
+}
+
+.custom-thead th {
+  background-color: #ece5dd !important;  /* أي لون غامق */
+  color: #124b8d !important;
+}
+
+.custom-tbody td {
+  background-color: #1a4e83 !important;  /* لون صفوف */
+  color: #e3dad1 !important;
+}
+
+.custom-table th,
+.custom-table td {
+  border: 1px solid #0a3662 !important;
+}
+
+
+
+.property-location {
+  background-color: #ede3ce;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 20px 0;
+  max-width: 100%;
+  text-align: right; /* ده يخلي الكلام يروح لليمين */
+  direction: rtl;     /* ده يخلي التنسيق العربي مظبوط */
+}
+
+.location-label {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+  display: block;
+}
+
+.location-text {
+  margin: 5px 0 10px;
+  color: #555;
+}
+
+.location-link {
+  color: #093f78;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.location-link:hover {
+  text-decoration: underline;
+}
+
+.property-title {
+  font-family: 'Amiri', serif;  /* خط Amiri */
+  font-size: 40px;              /* حجم متوسط */
+  font-weight: 200;             /* تخانة الخط */
+  color: #e0d4c5;               /* أزرق أنيق */
+  text-align: right;            /* توجيه النص يمين */
+  margin-bottom: 15px;
+}
+
+
+.property-detail-table {
+  background-color: #fdfdfd;
+  border: 2px solid #dcdcdc;
+  border-radius: 8px;
+  color: #333;
+  font-size: 15px;
+  direction: rtl; /* لو بتحبي التفاصيل تظهر من اليمين */
+}
+
+.property-detail-table th {
+  background-color: #f0f0f0;
+  color: #222;
+  padding: 10px;
+  width: 40%;
+  text-align: right;
+}
+
+.property-detail-table td {
+  background-color: #e5dfd9;
+  color: #222;
+  padding: 10px;
+  text-align: right;
+}
+
+
+/* جعل الباجينشن في منتصف الصفحة */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+/* تنسيق عام لكل عنصر باجينشن */
+.page-item {
+  margin: 0 4px;
+}
+
+/* تنسيق الرابط داخل كل زر */
+.page-link {
+  display: block;
+  padding: 8px 16px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  color: #007bff;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* الهوفر */
+.page-link:hover {
+  background-color: #d6e9ff;
+  border-color: #007bff;
+}
+
+/* زر الحالي (مفعل) */
+.page-item.active .page-link {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+/* زر غير متاح */
+.page-item.disabled .page-link {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* تخصيص السابق */
+.page-item.previous .page-link {
+  border-radius: 5px 0 0 5px;
+}
+
+/* تخصيص التالي */
+.page-item.next .page-link {
+  border-radius: 0 5px 5px 0;
+}
+
+.card-images {
+  display: flex;
+  flex-direction: row;       /* يخلي الصور جنب بعض */
+  justify-content: center;   /* يخليهم في النص */
+  gap: 10px;                 /* مسافة بين الصور */
+  margin-bottom: 15px;
+  flex-wrap: wrap;           /* يخليهم ينزلوا تحت لو المساحة مش كفاية */
+}
+
+
+
+.card-images img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  flex-shrink: 0;
+  border-radius: 10px;
+}
+
+.property-image {
+  width: 100%;              /* يملأ عرض الكارد */
+  height: 250px;            /* ارتفاع موحد */
+  object-fit: cover;        /* يملأ بدون تشويه */
+  border-radius: 10px 10px 0 0; /* حواف دائرية من فوق */
+  display: block;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.page-title-header {
+  background-color: #dfd6c9;
+  color: rgb(16, 86, 119);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 auto;
+  width: fit-content;
+}
