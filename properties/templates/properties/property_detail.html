@@ -24,10 +24,9 @@
 </head>
 <body class="property-detail-body" style="text-align: right;">
     
-    <div class="card">
+    <div class="custom-card">
       
-    <!-- <div class="container py-5">
-        <div class="card custom-blue text-white p-4 mb-4 "> -->
+ 
 
             <h1 class="mb-4 property-title">{{ property.title }}</h1>
             
@@ -95,10 +94,10 @@
                     {% endif %}
                 </tbody>
             </table>
-
-            <label class="property-label">-:المواصفات</label>
-<span class="property-description">{{ property.description|linebreaks }}</span>
-
+            <div class="property-specs-container">
+                <div class="property-specs-label">-:المواصفات</div>
+                <div class="property-description">{{ property.description|linebreaks }}</div>
+            </div>
          
             
 

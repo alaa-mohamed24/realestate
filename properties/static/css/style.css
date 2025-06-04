@@ -1,14 +1,24 @@
-html, body {
+/* html, body {
   height: 100%;
   margin: 0;
   padding: 0;
   background-color: #062a46 !important; /* أزرق غامق */
   color: #fff; /* عشان الكلام يبقى باين */
+} */
+
+/* .card {
+  background-color: #ffead6 !important; /* لون أزرق فاتح */
+} */
+
+.custom-card {
+background-color: #0d304d !important; /* لون أزرق غامق */
+color: white;
+direction: rtl;
+text-align: right;
+border-radius: 12px;
+border: none;
 }
 
-.card {
-  background-color: transparent !important;
-}
 
 .property-detail-body {
   min-height: 100vh; /* تأكيد إن العنصر يغطي كل الشاشة */
@@ -32,6 +42,7 @@ html, body {
   border-radius: 0 0 12px 12px;
   direction: rtl;
   text-align: right;
+  background-color: #f5eddf; /* لون بيج ناعم */
 }
 
 .card-title {
@@ -95,7 +106,7 @@ html, body {
 }
 
 .details-label {
-  background-color: #f1f0ed;  /* لون أصفر خفيف */
+  background-color: #cec7b3;  /* لون أصفر خفيف */
   color: rgb(14, 56, 94);
   padding: 4px 10px;
   border-radius: 5px;
@@ -131,24 +142,43 @@ html, body {
 }
 
 .property-detail-body {
-  background-color: #081a29; /* الأزرق */            /* اللون الأبيض للنص */
+  background-color: #0e3657; /* الأزرق */            /* اللون الأبيض للنص */
+}
+
+.property-specs-container {
+  background-color: #e5d9c0; /* خلفية ناعمة */
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.property-specs-label {
+  background-color: #0d3b5c;
+  color: #e7dbca;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: inline-block;
+  font-family: 'Cairo', sans-serif;
 }
 
 .property-description {
-  
   direction: rtl;
-  display: block;
-  font-family: 'Cairo', sans-serif; /* أو أي خط تختاريه */
+  font-family: 'Cairo', sans-serif;
   font-size: 18px;
-  line-height: 1.6;
-  color: #c9c0b3;
-  /* font-weight: bold; */
-  margin-top: 5px;
-  /* بدون تأثيرات خاصة بالكارت تيكست */
+  line-height: 1.8;
+  color: #053659;
+  margin-top: 8px;
+  text-align: right;
 }
 
+
 .property-label {
-  color: rgb(8, 65, 112);          /* نص أبيض */
+  color: rgb(8, 65, 112); 
+  display: block;         /* نص أبيض */
   background-color: #d4c8c1;  /* خلفية زرقاء أو أي لون داكن */
   padding: 5px 5px;
   border-radius: 4px;
@@ -156,6 +186,8 @@ html, body {
   float: right;
   margin-left: 10px;
 }
+
+
 
 .custom-table {
   border: 1px solid #e6e4de;
@@ -224,6 +256,7 @@ html, body {
 .property-detail-table {
   background-color: #fdfdfd;
   border: 2px solid #dcdcdc;
+  
   border-radius: 8px;
   color: #333;
   font-size: 15px;
