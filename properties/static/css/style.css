@@ -1,8 +1,20 @@
-body {
-  background-color: #326397;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #062a46 !important; /* أزرق غامق */
+  color: #fff; /* عشان الكلام يبقى باين */
 }
 
+.card {
+  background-color: transparent !important;
+}
 
+.property-detail-body {
+  min-height: 100vh; /* تأكيد إن العنصر يغطي كل الشاشة */
+  background-color: #062a46 !important;
+  color: #fff;
+}
 
 .filter-select {
   font-size: 14px;
@@ -16,8 +28,7 @@ body {
 }
 
 .card-body {
-  padding: 15px 20px 20px 20px; /* نقصت padding فوق عشان الصورة تمشي للعرض كامل */
-  background-color: #d8d1c8;
+  padding: 15px 20px 20px 20px;
   border-radius: 0 0 12px 12px;
   direction: rtl;
   text-align: right;
@@ -120,8 +131,7 @@ body {
 }
 
 .property-detail-body {
-  background-color: #e6d7cb; /* الأزرق */
-  color: white;              /* اللون الأبيض للنص */
+  background-color: #081a29; /* الأزرق */            /* اللون الأبيض للنص */
 }
 
 .property-description {
@@ -131,7 +141,7 @@ body {
   font-family: 'Cairo', sans-serif; /* أو أي خط تختاريه */
   font-size: 18px;
   line-height: 1.6;
-  color: #f3f2ef;
+  color: #c9c0b3;
   /* font-weight: bold; */
   margin-top: 5px;
   /* بدون تأثيرات خاصة بالكارت تيكست */
@@ -205,7 +215,7 @@ body {
   font-family: 'Amiri', serif;  /* خط Amiri */
   font-size: 40px;              /* حجم متوسط */
   font-weight: 200;             /* تخانة الخط */
-  color: #e0d4c5;               /* أزرق أنيق */
+  color: #ded1c1;               /* أزرق أنيق */
   text-align: right;            /* توجيه النص يمين */
   margin-bottom: 15px;
 }
