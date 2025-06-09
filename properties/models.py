@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils.text import slugify
     
 class Property(models.Model):
     SALE = 'sale'
@@ -44,10 +44,18 @@ class Property(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     amenities = models.TextField(blank=True, help_text="Comma-separated amenities")
     is_available = models.BooleanField(default=True, verbose_name="availabl?")
+    display_order = models.IntegerField(default=0)
    
     
     def __str__(self):
         return f"{self.title} - {self.get_category_display()}"
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+    
 
 class PropertyImage(models.Model):
     property = models.ForeignKey(Property, on_delete=models.CASCADE, related_name='images')

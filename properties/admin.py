@@ -13,9 +13,9 @@ class PropertyImageInline(admin.TabularInline):
 
 class PropertyAdmin(admin.ModelAdmin):
     form = PropertyAdminForm
-    list_display = ('title', 'price', 'category', 'is_available')
+    list_display = ('title', 'price', 'category', 'is_available', 'display_order')
     inlines = [PropertyImageInline]
-
+    list_editable = ['display_order'] 
     class Media:
         js = ('properties/property_admin.js',)
 
