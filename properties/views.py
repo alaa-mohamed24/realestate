@@ -48,13 +48,14 @@ def property_list(request):
         'all_locations': all_locations,  # ع
     }
 
+   
     return render(request, 'properties/property_list.html', context)
 
-def property_detail(request, property_id):
+def property_detail(request, property_id): 
     property = get_object_or_404(Property, id=property_id)
+ 
     formatted_price = intcomma(int(property.price)).replace(",", ".")
 
-    # Split amenities into list
     amenities_list = property.amenities.split(',') if property.amenities else []
 
     return render(request, 'properties/property_detail.html', {
