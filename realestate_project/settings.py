@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-yl=j=5+a-6(04$#m9c8jo0$d_o$8vaqrz&+po+p%^7+pm75n_x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['alaamohamed24.pythonanywhere.com']
+ALLOWED_HOSTS = [ '127.0.0.1', 'localhost', 'alaamohamed24.pythonanywhere.com']
 
 
 # Application definition
@@ -42,10 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'properties',
+    'tracking',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'tracking.middleware.VisitorTrackingMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -109,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Cairo'
 
 USE_I18N = True
 

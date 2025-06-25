@@ -5,38 +5,44 @@
 <html>
 <head>
     <title>{{ future_Land }}</title>
-    
-    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!-- ربط Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     <!-- ربط ملف CSS بتاعك -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-   
+
 
     <link rel="icon" type="image/png" href="{% static 'main/favicon.png' %}">
 
-    <meta property="og:title" content="future land - أفضل عروض للبيع والإيجار في أكتوبر" />
+    <meta property="og:title" content="Future Land - أفضل عروض للبيع في فيلات وشقق وأراضي تجارية وسكنية في أكتوبر والشيخ زايد" />
     <meta property="og:description" content="شاهد أحدث العقارات المتاحة في أكتوبر - شقق، فيلات، عمارات وأكثر بأسعار مميزة!" />
-    <meta property="og:image" content="https://alaamohamed24.pythonanywhere.com/static/main/new_logo.png" />
+    <meta property="og:image" content="https://alaamohamed24.pythonanywhere.com/static/main/newlogo1.jpg" />
     <meta property="og:url" content="https://alaamohamed24.pythonanywhere.com/properties/" />
     <meta property="og:type" content="website" />
-    
-   
 
-    <style>
-      .custom-blue {
-        background-color: hwb(210 7% 54%);
-      }
-    </style>
+   <body class="mt-4" style="background-color: #0e5c8d; padding: 20px;">
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PLVJQ6CHVD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PLVJQ6CHVD');
+</script>
+
 </head>
-<body 
+<body
      class="container-fluid mt-4">
      <h1 class="text-center mb-4 custom-header-bg">future Land</h1>
 
     <h1 class="text-center mb-4 custom-header-bg">Property List</h1>
-     
+
 <!-- فورم الفلترة -->
 <form method="get" class="row g-2 mb-3">
   <div class="col-md-3">
@@ -64,7 +70,7 @@
           <option value="Store" {% if property_type == 'Store' %}selected{% endif %}>Store</option>
       </select>
   </div>
-  
+
   <div class="col-md-3">
     <select name="location" class="form-select filter-select">
         <option value="">Choose Area</option>
@@ -81,8 +87,8 @@
       <button type="submit" class="btn btn-primary w-100">search</button>
   </div>
 
- 
-    
+
+
 </form>
 
 
@@ -90,13 +96,15 @@
   {% for property in page_obj %}
     <div class="col-md-6 mb-4">
       <div class="card property-card">
-      
-        {% if property.images.first %}
-        <img src="{{ property.images.first.image.url }}" alt="صورة العقار" class="property-image">
-        {% else %}
-          <img src="{% static 'images/default.jpg' %}" alt="لا توجد صورة" class="property-image">
-        {% endif %}
-        
+
+        <div class="property-image-container">
+          {% if property.images.first %}
+            <img src="{{ property.images.first.image.url }}" alt="صورة العقار" class="property-image">
+          {% else %}
+            <img src="{% static 'images/default.jpg' %}" alt="لا توجد صورة" class="property-image">
+          {% endif %}
+        </div>
+
         <div class="card-body">
           <h5 class="card-title" onclick="alert('اضغط على التفاصيل لمشاهدة المزيد')">
             {{ property.title }}
@@ -107,10 +115,10 @@
           {% if property.is_available %}
             <span class="status available">✅ Available</span>
           {% else %}
-            <span class="status sold-out">❌ Sold Out</span> 
+            <span class="status sold-out">❌ Sold Out</span>
           {% endif %}
 
-          <a href="{% url 'property_detail' property.id %}">
+          <a href="{% url 'property_detail' property.slug %}">
             <strong class="details-label">التفاصيل</strong>
           </a>
         </div>
@@ -119,46 +127,69 @@
   {% endfor %}
 </div>
 
+<!-- ✅ الباجينشن داخل نفس الكونتينر وتحت الكروت مباشرة -->
+<div class="row">
+  <div class="col-12">
     <nav aria-label="Page navigation">
-      <ul class="pagination">
+      <ul class="pagination justify-content-center flex-wrap">
 
-       <!-- زر السابق -->
-<li class="page-item previous {% if not page_obj.has_previous %}disabled{% endif %}">
-  {% if page_obj.has_previous %}
-    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">السابق</a>
-  {% else %}
-    <span class="page-link">السابق</span>
-  {% endif %}
-</li>
+        {% with current=page_obj.number total=page_obj.paginator.num_pages %}
 
-<!-- أرقام الصفحات -->
-{% for num in page_obj.paginator.page_range %}
-  <li class="page-item {% if page_obj.number == num %}active{% endif %}">
-    <a class="page-link" href="?page={{ num }}">{{ num }}</a>
-  </li>
-{% endfor %}
+          <!-- زر السابق -->
+          <li class="page-item previous {% if not page_obj.has_previous %}disabled{% endif %}">
+            {% if page_obj.has_previous %}
+              <a class="page-link"
+                 href="?page={{ page_obj.previous_page_number }}{% if category %}&category={{ category }}{% endif %}{% if property_type %}&property_type={{ property_type }}{% endif %}{% if max_price %}&max_price={{ max_price }}{% endif %}{% if location %}&location={{ location }}{% endif %}">
+                السابق
+              </a>
+            {% else %}
+              <span class="page-link">السابق</span>
+            {% endif %}
+          </li>
 
-<!-- زر التالي -->
-<li class="page-item next {% if not page_obj.has_next %}disabled{% endif %}">
-  {% if page_obj.has_next %}
-    <a class="page-link" href="?page={{ page_obj.next_page_number }}">التالي</a>
-  {% else %}
-    <span class="page-link">التالي</span>
-  {% endif %}
-</li>
-      
+          <!-- أرقام الصفحات (صفحة حالية + قبلها + بعدها فقط) -->
+          {% for num in page_obj.paginator.page_range %}
+            {% if num == current or num == current|add:"-1" or num == current|add:"1" %}
+              <li class="page-item {% if current == num %}active{% endif %}">
+                <a class="page-link"
+                   href="?page={{ num }}{% if category %}&category={{ category }}{% endif %}{% if property_type %}&property_type={{ property_type }}{% endif %}{% if max_price %}&max_price={{ max_price }}{% endif %}{% if location %}&location={{ location }}{% endif %}">
+                  {{ num }}
+                </a>
+              </li>
+            {% endif %}
+          {% endfor %}
+
+          <!-- زر التالي -->
+          <li class="page-item next {% if not page_obj.has_next %}disabled{% endif %}">
+            {% if page_obj.has_next %}
+              <a class="page-link"
+                 href="?page={{ page_obj.next_page_number }}{% if category %}&category={{ category }}{% endif %}{% if property_type %}&property_type={{ property_type }}{% endif %}{% if max_price %}&max_price={{ max_price }}{% endif %}{% if location %}&location={{ location }}{% endif %}">
+                التالي
+              </a>
+            {% else %}
+              <span class="page-link">التالي</span>
+            {% endif %}
+          </li>
+
+        {% endwith %}
+
       </ul>
     </nav>
+  </div>
+</div>
 
     <!-- <div class="text-center mt-4">
       <a href="{% url 'about_us' %}" class="btn btn-outline-primary">About Us</a> -->
   </div>
 
 
-  <div class="text-center mt-4">
-    <a href="#" class="btn custom-about-btn" onclick="toggleAbout()">About Us</a>
-  
-    <div id="about-section" style="display: none;" class="about-container mt-4">
+
+
+    <div class="text-center mt-4">
+      <a href="#" class="btn custom-about-btn" onclick="toggleAbout(event)">About Us</a>
+    </div>
+
+    <div id="about-section" style="display: none;" class="about-container mt-4 text-center">
       <h2>من نحن</h2>
       <p><strong>Future Land</strong></p>
       <p>
@@ -169,18 +200,20 @@
         لا ينتهي دورنا بمجرد البيع، بل نحرص على تقديم <strong>خدمة ما بعد البيع</strong> لضمان راحة عملائنا واستمرار رضاهم.
         هدفنا أن نكون دائمًا شركاء في نجاحات عملائنا من خلال تقديم أفضل الحلول العقارية بأعلى جودة ومصداقية.
       </p>
-  
-      <!-- الصورة -->
-      <img src="{% static 'main/new_logo.png' %}" alt="About Us Image" style="width: 300px; height: auto; margin-top: 15px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
-    </div>
-  </div>
 
-  <script>
-    function toggleAbout() {
-      var section = document.getElementById("about-section");
-      section.style.display = section.style.display === "none" ? "block" : "none";
-    }
-  </script>
+      <!-- الصورة -->
+      <img src="{% static 'main/newlogo1.jpg' %}" alt="About Us Image" style="width: 300px; height: auto; margin-top: 15px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+    </div>
+
+    <script>
+      function toggleAbout(event) {
+        event.preventDefault(); // يمنع الصفحة تطلع لفوق
+
+        var section = document.getElementById("about-section");
+        section.style.display = (section.style.display === "none" || section.style.display === "") ? "block" : "none";
+      }
+    </script>
+
 
 </body>
 </html>

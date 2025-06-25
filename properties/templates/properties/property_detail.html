@@ -11,15 +11,26 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PLVJQ6CHVD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PLVJQ6CHVD');
+</script>
+
 </head>
 <body class="property-detail-body" style="text-align: right;">
-    
+
     <div class="custom-card">
-      
- 
+
+
 
             <h1 class="mb-4 property-title">{{ property.title }}</h1>
-            
+
 
             <div class="card-images">
                 {% for image in property.images.all %}
@@ -33,10 +44,10 @@
             <table class="table table-bordered custom-table mb-4" style="max-width: 600px; margin: 0 auto;">
                 <thead class="custom-thead">
                     <tr>
-                        {% if property.property_type == "building" %}
+                        {% if property.property_type == "building" or property.property_type == "villa" %}
                             <th>Floors</th>
                             <th>Apartments</th>
-                         
+
                         {% else %}
                             <th>Bedrooms</th>
                             <th>Bathrooms</th>
@@ -47,7 +58,7 @@
                 </thead>
                 <tbody class="custom-tbody">
                     <tr>
-                        {% if property.property_type == "building" %}
+                        {% if property.property_type == "building" or property.property_type == "villa" %}
                             <td>{{ property.number_of_floors }}</td>
                             <td>{{ property.units_count }}</td>
                         {% else %}
@@ -88,8 +99,8 @@
                 <div class="property-specs-label">-:المواصفات</div>
                 <div class="property-description">{{ property.description|linebreaks }}</div>
             </div>
-         
-            
+
+
 
             <div class="property-location">
                 <label class="location-label">📍 Address:</label>
@@ -98,8 +109,8 @@
                     View Location on Map
                 </a>
             </div>
-            
-           
+
+
 
             <!-- الأزرار -->
             <div class="mb-4 mt-4">
@@ -112,5 +123,8 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
 </body>
 </html>

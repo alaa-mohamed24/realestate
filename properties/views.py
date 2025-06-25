@@ -17,7 +17,7 @@ def property_list(request):
     max_price = request.GET.get('max_price')
     if max_price:
         property_list = property_list.filter(price__lte=max_price)
-    
+
     location = request.GET.get('location')
     if location:
         property_list = property_list.filter(location=location)
@@ -37,7 +37,8 @@ def property_list(request):
 
     page_obj = paginator.get_page(page_number)
 
-    all_locations = Property.objects.values_list('location', flat=True).distinct()
+    locations_raw = Property.objects.values_list('location', flat=True)
+    all_locations = sorted(set(loc.strip().title() for loc in locations_raw if loc))
 
     context = {
         'page_obj': page_obj,
@@ -48,12 +49,12 @@ def property_list(request):
         'all_locations': all_locations,  # ع
     }
 
-   
+
     return render(request, 'properties/property_list.html', context)
 
-def property_detail(request, property_id): 
-    property = get_object_or_404(Property, id=property_id)
- 
+def property_detail(request, slug):
+    property = get_object_or_404(Property,slug=slug)
+
     formatted_price = intcomma(int(property.price)).replace(",", ".")
 
     amenities_list = property.amenities.split(',') if property.amenities else []
